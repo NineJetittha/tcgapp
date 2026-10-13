@@ -1,0 +1,30 @@
+.tier-list-embed {
+	position: relative;
+	height: calc(100vh - 56px);
+	min-height: 600px;
+	background: #ffffff;
+}
+
+.tier-list-embed iframe {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+.tier-list-fallback {
+	position: absolute;
+	z-index: 1;
+	top: 12px;
+	right: 16px;
+	padding: 8px 12px;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.94);
+	box-shadow: 0 2px 8px rgba(15, 23, 42, 0.16);
+}
+
+.tier-list-fallback a {
+	color: #1d4ed8;
+	font-weight: 700;
+	text-decoration: none;
+}

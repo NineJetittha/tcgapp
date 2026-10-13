@@ -1,0 +1,81 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="bg-white">
+    <div class="flex justify-between items-center px-4 py-2">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xs">
+          TCG
+        </div>
+        <span class="font-bold text-xl text-gray-800">Card Store</span>
+      </div>
+      
+      <div class="flex items-center gap-4">
+        <div *ngIf="currentUser" class="hidden md:flex items-center gap-2">
+          <span class="font-bold text-sm text-gray-700">{{ currentUser.username }}</span>
+          <span class="px-2 py-1 bg-red-500 text-white text-[10px] font-bold rounded uppercase">{{ currentUser.role }}</span>
+        </div>
+        <button (click)="logout()" class="text-red-500 font-bold text-sm hover:text-red-600 transition">
+          ออกจากระบบ
+        </button>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-gray-50">
+  <div class="max-w-5xl mx-auto p-4 md:p-6 lg:p-8">
+    
+    <!-- Banner -->
+    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl p-8 md:p-12 text-center text-white shadow-lg mb-8">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-4 drop-shadow-md">ยินดีต้อนรับสู่ TCG Card Store</h1>
+      <p class="text-blue-100 max-w-2xl mx-auto font-medium">ศูนย์รวมการซื้อขายการ์ดเกมและจัดการแข่งขันที่ครบวงจรที่สุด เลือกเมนูด้านล่างเพื่อเริ่มต้นใช้งาน</p>
+    </div>
+
+    <!-- เมนูและวิธีการใช้งาน (แก้เป็น 5 คอลัมน์) -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      
+      <!-- Card 1: ลงขาย -->
+      <a (click)="goTo('/sell-card')" class="cursor-pointer bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-500 transition group block text-center flex flex-col h-full">
+        <div class="w-14 h-14 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <span class="text-2xl">📦</span>
+        </div>
+        <h2 class="text-lg font-bold text-gray-800 mb-2">ลงขายการ์ด</h2>
+        <p class="text-gray-500 text-xs flex-grow">อัปโหลดรูปภาพ ตั้งราคา และลงประกาศขาย</p>
+      </a>
+
+      <!-- Card 2: ตลาดซื้อขาย -->
+      <a (click)="goTo('/shop')" class="cursor-pointer bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-green-500 transition group block text-center flex flex-col h-full">
+        <div class="w-14 h-14 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <span class="text-2xl">🛒</span>
+        </div>
+        <h2 class="text-lg font-bold text-gray-800 mb-2">ตลาดซื้อขาย</h2>
+        <p class="text-gray-500 text-xs flex-grow">เลือกชมการ์ด ค้นหาแรร์ไอเทม และสั่งซื้อ</p>
+      </a>
+
+      <!-- Card 3: จัดการแข่งขัน -->
+      <a (click)="goTo('/event')" class="cursor-pointer bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-purple-500 transition group block text-center flex flex-col h-full">
+        <div class="w-14 h-14 mx-auto bg-purple-50 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <span class="text-2xl">🏆</span>
+        </div>
+        <h2 class="text-lg font-bold text-gray-800 mb-2">จัดการแข่งขัน</h2>
+        <p class="text-gray-500 text-xs flex-grow">สร้างทัวร์นาเมนต์ กำหนดวันเวลา และสถานที่</p>
+      </a>
+
+      <!-- Card 4: ประมูลการ์ด -->
+      <a (click)="goTo('/auction')" class="cursor-pointer bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-orange-500 transition group block text-center flex flex-col h-full">
+        <div class="w-14 h-14 mx-auto bg-orange-50 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <span class="text-2xl">🔨</span>
+        </div>
+        <h2 class="text-lg font-bold text-gray-800 mb-2">ประมูลการ์ด</h2>
+        <p class="text-gray-500 text-xs flex-grow">ร่วมประมูลการ์ดหายาก แข่งขันเสนอราคา</p>
+      </a>
+
+      <!-- Card 5: แนะนำการ์ด Tier List -->
+      <a (click)="goTo('/tier-list')" class="cursor-pointer bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-yellow-500 transition group block text-center flex flex-col h-full">
+        <div class="w-14 h-14 mx-auto bg-yellow-50 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <span class="text-2xl">📊</span>
+        </div>
+        <h2 class="text-lg font-bold text-gray-800 mb-2">Tier List</h2>
+        <p class="text-gray-500 text-xs flex-grow">จัดอันดับความเก่งของการ์ดและเด็คยอดฮิต</p>
+      </a>
+
+    </div>

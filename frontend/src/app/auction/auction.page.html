@@ -1,0 +1,58 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="bg-white border-b border-gray-100">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="กลับ" class="text-orange-500"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="font-bold text-gray-800">ลานประมูลการ์ด</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-gray-50">
+  <div class="max-w-5xl mx-auto p-4 md:p-6">
+    
+    <div class="flex justify-between items-end mb-6">
+      <div>
+        <h1 class="text-2xl font-black text-gray-800">Live Auctions 🔨</h1>
+        <p class="text-gray-500 text-sm mt-1">การประมูลที่กำลังดำเนินอยู่ขณะนี้</p>
+      </div>
+      <button (click)="createAuction()" class="bg-orange-100 text-orange-600 font-bold px-4 py-2 rounded-lg text-sm hover:bg-orange-200 transition">
+        สร้างการประมูล
+      </button>
+    </div>
+
+    <!-- รายการประมูล -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <div *ngFor="let auction of auctions" class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden group">
+        <div class="h-48 bg-gray-200 relative">
+          <img [src]="auction.image" [alt]="auction.name" class="w-full h-full object-contain bg-gray-900" />
+          
+          <div class="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 animate-pulse">
+            <span class="w-2 h-2 bg-red-500 rounded-full"></span> {{ auction.timeLeft }} ล่าสุด
+          </div>
+        </div>
+        
+        <div class="p-5">
+          <h3 class="font-bold text-lg text-gray-800 line-clamp-1">{{ auction.name }}</h3>
+          <p class="text-xs text-gray-500 mb-4">โดยผู้ขาย: {{ auction.seller }}</p>
+          
+          <div class="bg-gray-50 p-3 rounded-xl flex justify-between items-center mb-4 border border-gray-100">
+            <div>
+              <p class="text-xs text-gray-500 font-medium">ราคาประมูลปัจจุบัน</p>
+              <p class="text-xl font-black text-orange-600">฿{{ auction.currentBid | number }}</p>
+            </div>
+            <div class="text-right">
+              <p class="text-xs text-gray-500 font-medium">Bids</p>
+              <p class="text-sm font-bold text-gray-800">{{ auction.bidCount }} ครั้ง</p>
+            </div>
+          </div>
+          
+          <button (click)="placeBid(auction)" class="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition shadow-md shadow-orange-500/30">
+            เสนอราคา (Bid)
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

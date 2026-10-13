@@ -1,0 +1,46 @@
+<ion-content class="bg-gray-50">
+  <div class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-3xl shadow-xl w-full max-w-md border border-gray-100">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-extrabold text-gray-800 tracking-tight">สมัครสมาชิก</h1>
+        <p class="text-gray-500 text-sm mt-2">สร้างบัญชีเพื่อเข้าร่วม TCG Card Store</p>
+      </div>
+
+      <form (ngSubmit)="onRegister()" class="flex flex-col gap-4">
+        <div>
+          <label class="text-sm font-bold text-gray-700">Username (ภาษาอังกฤษเท่านั้น)</label>
+          <input type="text" [(ngModel)]="username" name="username" required 
+                 class="w-full mt-2 p-3.5 border-2 border-gray-200 rounded-xl focus:ring-0 focus:border-green-500 focus:outline-none bg-gray-50 text-gray-800" />
+        </div>
+        <div>
+          <label class="text-sm font-bold text-gray-700">รหัสผ่าน</label>
+          <input type="password" [(ngModel)]="password" name="password" required 
+                 placeholder="พิมพ์ใหญ่, เล็ก, ตัวเลข, อักขระพิเศษ"
+                 class="w-full mt-2 p-3.5 border-2 border-gray-200 rounded-xl focus:ring-0 focus:border-green-500 focus:outline-none bg-gray-50 text-gray-800" />
+        </div>
+        <div>
+          <label class="text-sm font-bold text-gray-700">ยืนยันรหัสผ่าน</label>
+          <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required 
+                 class="w-full mt-2 p-3.5 border-2 border-gray-200 rounded-xl focus:ring-0 focus:border-green-500 focus:outline-none bg-gray-50 text-gray-800" />
+        </div>
+
+        <div *ngIf="errorMessage" class="text-red-600 text-sm font-bold bg-red-50 p-3 rounded-xl text-center border border-red-100">
+          {{ errorMessage }}
+        </div>
+        <div *ngIf="successMessage" class="text-green-600 text-sm font-bold bg-green-50 p-3 rounded-xl text-center border border-green-100">
+          {{ successMessage }}
+        </div>
+
+        <button type="submit" 
+                class="w-full py-4 mt-2 font-extrabold rounded-xl text-white bg-gradient-to-r from-green-500 to-emerald-600 hover:scale-[1.02] transition-transform shadow-lg">
+          ยืนยันการสมัคร
+        </button>
+      </form>
+      
+      <div class="mt-6 text-center">
+        <span class="text-gray-500 text-sm">มีบัญชีอยู่แล้ว? </span>
+        <a (click)="goToLogin()" class="text-blue-600 font-bold cursor-pointer hover:underline">เข้าสู่ระบบ</a>
+      </div>
+    </div>
+  </div>
+</ion-content>

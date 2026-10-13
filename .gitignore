@@ -1,0 +1,19 @@
+# Dependencies and generated output
+node_modules/
+frontend/www/
+frontend/.angular/
+frontend/android/.gradle/
+frontend/android/app/build/
+frontend/android/build/
+
+# Local IDE and environment files
+.idea/
+.vscode/
+*.iml
+local.properties
+
+# Logs and secrets
+*.log
+.env
+.env.*
+!.env.example

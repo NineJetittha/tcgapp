@@ -1,0 +1,23 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="bg-gray-800 text-white">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="กลับ"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="font-bold text-sm">Decks & Tier List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-gray-100">
+  <div class="tier-list-embed">
+    <div class="tier-list-fallback">
+      <a href="https://www.pokemon-zone.com/decks/" target="_blank" rel="noopener noreferrer">
+        เปิด Pokémon Zone ในแท็บใหม่
+      </a>
+    </div>
+    <iframe
+      src="https://www.pokemon-zone.com/decks/"
+      title="Pokemon Zone Decks"
+      loading="lazy">
+    </iframe>
+  </div>
+</ion-content>
