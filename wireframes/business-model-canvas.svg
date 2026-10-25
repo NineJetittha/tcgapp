@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#e8e8e8"/>
+  <text x="80" y="76" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#111">Business Model Canvas</text>
+  <text x="80" y="110" font-family="Arial,sans-serif" font-size="18" fill="#555">TCG Card Store — แพลตฟอร์มซื้อขาย ประมูล และชุมชนผู้สะสมการ์ด</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#222">
+    <text x="800" y="44">จัดทำสำหรับ: TCG Card Store</text><line x1="800" y1="52" x2="1110" y2="52" stroke="#555"/>
+    <text x="1140" y="44">จัดทำโดย: Product Team</text><line x1="1140" y1="52" x2="1450" y2="52" stroke="#555"/>
+    <text x="1480" y="44">วันที่: 25/10/2026</text><line x1="1480" y1="52" x2="1740" y2="52" stroke="#555"/>
+  </g>
+
+  <!-- Main canvas -->
+  <g stroke="#111" stroke-width="3" fill="#fff">
+    <rect x="80" y="145" width="1760" height="700"/>
+    <rect x="80" y="145" width="330" height="560"/>
+    <rect x="410" y="145" width="330" height="280"/>
+    <rect x="410" y="425" width="330" height="280"/>
+    <rect x="740" y="145" width="360" height="560"/>
+    <rect x="1100" y="145" width="330" height="280"/>
+    <rect x="1100" y="425" width="330" height="280"/>
+    <rect x="1430" y="145" width="410" height="560"/>
+    <rect x="80" y="705" width="870" height="140"/>
+    <rect x="950" y="705" width="890" height="140"/>
+  </g>
+
+  <!-- Headings -->
+  <g font-family="Arial,sans-serif" font-weight="700" font-size="22" fill="#111">
+    <text x="105" y="185">Key Partnerships</text>
+    <text x="435" y="185">Key Activities</text>
+    <text x="435" y="465">Key Resources</text>
+    <text x="765" y="185">Value Propositions</text>
+    <text x="1125" y="185">Customer Relationships</text>
+    <text x="1125" y="465">Channels</text>
+    <text x="1455" y="185">Customer Segments</text>
+    <text x="105" y="745">Cost Structure</text>
+    <text x="975" y="745">Revenue Streams</text>
+  </g>
+
+  <!-- Content -->
+  <g font-family="Arial,sans-serif" font-size="18" fill="#222">
+    <g>
+      <text x="110" y="230">• ร้านการ์ดและผู้จัดจำหน่าย</text>
+      <text x="110" y="264">• ผู้ขายการ์ดและนักสะสม</text>
+      <text x="110" y="298">• ผู้จัดการแข่งขัน / Tournament</text>
+      <text x="110" y="332">• ผู้ให้บริการชำระเงิน</text>
+      <text x="110" y="366">• Firebase / Cloud infrastructure</text>
+      <text x="110" y="400">• Influencer และคอมมูนิตี้ TCG</text>
+      <text x="110" y="434">• ผู้ประเมินสภาพและความแท้ของการ์ด</text>
+    </g>
+    <g>
+      <text x="440" y="230">• พัฒนาและดูแลแพลตฟอร์ม</text>
+      <text x="440" y="264">• จัดการตลาดซื้อขายและการประมูล</text>
+      <text x="440" y="298">• ตรวจสอบรายการและลดความเสี่ยงการโกง</text>
+      <text x="440" y="332">• จัดการกิจกรรมการแข่งขัน</text>
+      <text x="440" y="366">• สร้างคอนเทนต์และข้อมูล Tier List</text>
+      <text x="440" y="400">• ดูแลลูกค้าและสร้างชุมชน</text>
+    </g>
+    <g>
+      <text x="440" y="510">• แอป Web / Android และฐานข้อมูล</text>
+      <text x="440" y="544">• ระบบบัญชีผู้ใช้และสิทธิ์ Admin</text>
+      <text x="440" y="578">• ระบบลงขาย อัปโหลดรูป และกล้อง</text>
+      <text x="440" y="612">• ทีมพัฒนาและทีมดูแลชุมชน</text>
+      <text x="440" y="646">• ข้อมูลราคา เด็ค และผลการแข่งขัน</text>
+    </g>
+    <g>
+      <text x="770" y="230">• ศูนย์กลางซื้อขายการ์ดที่ใช้งานง่าย</text>
+      <text x="770" y="264">• ผู้ขายลงรายการได้ด้วยรูปและราคา</text>
+      <text x="770" y="298">• ประมูลการ์ดหายากแบบ Live</text>
+      <text x="770" y="332">• ค้นพบเด็คและ Tier List เพื่อวางแผนเล่น</text>
+      <text x="770" y="366">• รวมตารางการแข่งขันและสมัครเข้าร่วม</text>
+      <text x="770" y="400">• เพิ่มความมั่นใจด้วยข้อมูลผู้ขายและรายการ</text>
+      <text x="770" y="434">• ประสบการณ์ครบตั้งแต่สะสม ซื้อ ขาย และแข่งขัน</text>
+      <text x="770" y="500" font-weight="700">คุณค่าหลัก:</text>
+      <text x="770" y="534">ลดเวลาในการค้นหาการ์ดและสร้างช่องทาง</text>
+      <text x="770" y="568">ให้ผู้สะสมพบผู้ซื้อ/ผู้ขายที่ตรงความต้องการ</text>
+      <text x="770" y="602">พร้อมเชื่อมต่อกับกิจกรรมของคอมมูนิตี้</text>
+    </g>
+    <g>
+      <text x="1130" y="230">• Self-service ผ่านระบบแอป</text>
+      <text x="1130" y="264">• แจ้งเตือนเมื่อซื้อ ขาย หรือสร้างกิจกรรม</text>
+      <text x="1130" y="298">• โปรไฟล์ผู้ใช้และประวัติรายการ</text>
+      <text x="1130" y="332">• ระบบช่วยเหลือและรายงานปัญหา</text>
+      <text x="1130" y="366">• สร้างความไว้วางใจผ่านรีวิวและสถานะผู้ขาย</text>
+      <text x="1130" y="400">• Community engagement ผ่านการแข่งขัน</text>
+    </g>
+    <g>
+      <text x="1130" y="510">• เว็บไซต์และ Web App</text>
+      <text x="1130" y="544">• Android App ผ่าน Capacitor</text>
+      <text x="1130" y="578">• Social media และกลุ่ม TCG</text>
+      <text x="1130" y="612">• ร้านการ์ดและงานแข่งออฟไลน์</text>
+      <text x="1130" y="646">• Content / SEO / Referral</text>
+    </g>
+    <g>
+      <text x="1460" y="230" font-weight="700">ผู้ใช้หลัก</text>
+      <text x="1460" y="264">• นักสะสมการ์ดทุกระดับ</text>
+      <text x="1460" y="298">• ผู้เล่น Pokémon TCG</text>
+      <text x="1460" y="332">• ผู้ซื้อการ์ดหายากและของสะสม</text>
+      <text x="1460" y="366">• ผู้ขายรายย่อย / ร้านการ์ด</text>
+      <text x="1460" y="400">• ผู้จัดงานและผู้เข้าแข่งขัน</text>
+      <text x="1460" y="450" font-weight="700">กลุ่มเริ่มต้น</text>
+      <text x="1460" y="484">ผู้ใช้ที่ต้องการช่องทางซื้อขาย</text>
+      <text x="1460" y="518">ที่สะดวกและมีข้อมูลประกอบการตัดสินใจ</text>
+      <text x="1460" y="568" font-weight="700">กลุ่มระยะถัดไป</text>
+      <text x="1460" y="602">ร้านค้า พาร์ทเนอร์ และผู้จัดจำหน่าย</text>
+      <text x="1460" y="636">ที่ต้องการเครื่องมือเข้าถึงลูกค้าใหม่</text>
+    </g>
+    <g>
+      <text x="110" y="785">• ค่าพัฒนา บำรุงรักษา และโฮสติ้ง</text>
+      <text x="430" y="785">• ค่าการตลาดและสร้างคอมมูนิตี้</text>
+      <text x="110" y="820">• ค่าบริหารทีมงานและ Customer Support</text>
+      <text x="430" y="820">• ค่าระบบชำระเงินและการตรวจสอบธุรกรรม</text>
+    </g>
+    <g>
+      <text x="980" y="785">• ค่าธรรมเนียมจากการขายแต่ละรายการ</text>
+      <text x="1370" y="785">• ค่าธรรมเนียมจากการประมูล</text>
+      <text x="980" y="820">• แพ็กเกจร้านค้า / Seller subscription</text>
+      <text x="1370" y="820">• โฆษณาและ Sponsored listings</text>
+    </g>
+  </g>
+
+  <g font-family="Arial,sans-serif" font-size="16" fill="#555">
+    <text x="85" y="900">สมมติฐานสำคัญ: ผู้ใช้ต้องการตลาดเฉพาะทางที่มีข้อมูลการ์ด กิจกรรม และชุมชนอยู่ในที่เดียว</text>
+    <text x="85" y="932">ตัวชี้วัดหลัก: จำนวนผู้ใช้ที่ใช้งานรายเดือน, จำนวนรายการขาย, GMV, อัตราการซื้อซ้ำ, จำนวนผู้เข้าร่วมกิจกรรม</text>
+    <text x="85" y="982">TCG Card Store • Business Model Canvas • Version 1.0</text>
+    <text x="1835" y="982" text-anchor="end">Prepared for product planning</text>
+  </g>
+</svg>

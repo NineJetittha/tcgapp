@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <marker id="redArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity=".15"/></filter>
+  </defs>
+  <rect width="1920" height="1080" fill="#f4f7fb"/>
+  <rect x="60" y="40" width="1800" height="100" rx="24" fill="#173b68"/>
+  <text x="960" y="88" text-anchor="middle" font-family="Arial,sans-serif" font-size="40" font-weight="800" fill="#fff">TCG Card Store — Software Architecture</text>
+  <text x="960" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#cfe3ff">แบบที่ 1: Local Host + Docker Environment</text>
+
+  <rect x="90" y="190" width="410" height="730" rx="22" fill="#fff" stroke="#7c3aed" stroke-width="3" filter="url(#shadow)"/>
+  <text x="295" y="235" text-anchor="middle" font-family="Arial" font-size="26" font-weight="800" fill="#5b21b6">User / Developer</text>
+  <rect x="135" y="275" width="320" height="125" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="295" y="320" text-anchor="middle" font-family="Arial" font-size="23" font-weight="700" fill="#111827">Browser / Android</text>
+  <text x="295" y="355" text-anchor="middle" font-family="Arial" font-size="18" fill="#4b5563">localhost:4200</text>
+  <rect x="135" y="455" width="320" height="175" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="295" y="498" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#111827">Ionic + Angular</text>
+  <text x="295" y="535" text-anchor="middle" font-family="Arial" font-size="17" fill="#4b5563">Routes / Guards / Services</text>
+  <text x="295" y="567" text-anchor="middle" font-family="Arial" font-size="17" fill="#4b5563">Login • Shop • Auction</text>
+  <text x="295" y="595" text-anchor="middle" font-family="Arial" font-size="17" fill="#4b5563">Events • Sell • Tier List</text>
+  <rect x="135" y="690" width="320" height="160" rx="14" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="295" y="730" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" fill="#9a3412">Capacitor / Camera</text>
+  <text x="295" y="767" text-anchor="middle" font-family="Arial" font-size="17" fill="#4b5563">Local image preview</text>
+  <text x="295" y="798" text-anchor="middle" font-family="Arial" font-size="17" fill="#4b5563">Android debug APK</text>
+
+  <rect x="570" y="170" width="1260" height="775" rx="25" fill="#e8f0fa" stroke="#2563eb" stroke-width="4" stroke-dasharray="12 8"/>
+  <text x="620" y="220" font-family="Arial" font-size="30" font-weight="800" fill="#1d4ed8">Docker Compose Network: tcg_network</text>
+  <text x="620" y="250" font-family="Arial" font-size="17" fill="#475569">Local containers • persistent named volumes • internal service discovery</text>
+
+  <rect x="640" y="300" width="340" height="230" rx="18" fill="#fff" stroke="#0ea5e9" stroke-width="3" filter="url(#shadow)"/>
+  <text x="810" y="350" text-anchor="middle" font-family="Arial" font-size="27" font-weight="800" fill="#0369a1">API Container</text>
+  <text x="810" y="387" text-anchor="middle" font-family="Arial" font-size="20" fill="#111827">Node.js + Express</text>
+  <text x="810" y="425" text-anchor="middle" font-family="Arial" font-size="18" fill="#475569">Port 3000</text>
+  <text x="810" y="462" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">/api/cards • /health</text>
+  <text x="810" y="495" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">CORS • JSON • Mongoose</text>
+
+  <rect x="1040" y="300" width="340" height="230" rx="18" fill="#fff" stroke="#16a34a" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1210" y="350" text-anchor="middle" font-family="Arial" font-size="27" font-weight="800" fill="#166534">Database Container</text>
+  <text x="1210" y="390" text-anchor="middle" font-family="Arial" font-size="22" fill="#111827">MongoDB</text>
+  <text x="1210" y="428" text-anchor="middle" font-family="Arial" font-size="18" fill="#475569">Port 27017</text>
+  <text x="1210" y="466" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">tcg_store database</text>
+  <text x="1210" y="500" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">mongo_data volume</text>
+
+  <rect x="1440" y="300" width="320" height="230" rx="18" fill="#fff" stroke="#f59e0b" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1600" y="350" text-anchor="middle" font-family="Arial" font-size="27" font-weight="800" fill="#92400e">Automation</text>
+  <text x="1600" y="390" text-anchor="middle" font-family="Arial" font-size="22" fill="#111827">Node-RED</text>
+  <text x="1600" y="428" text-anchor="middle" font-family="Arial" font-size="18" fill="#475569">Port 1880</text>
+  <text x="1600" y="466" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">Flows / notifications</text>
+  <text x="1600" y="500" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">nodered_data volume</text>
+
+  <rect x="640" y="625" width="1120" height="220" rx="18" fill="#fff" stroke="#64748b" stroke-width="3"/>
+  <text x="1200" y="675" text-anchor="middle" font-family="Arial" font-size="25" font-weight="800" fill="#334155">Docker Host</text>
+  <text x="1200" y="715" text-anchor="middle" font-family="Arial" font-size="18" fill="#475569">docker compose up -d --build</text>
+  <text x="1200" y="755" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">API: localhost:3000  •  MongoDB: localhost:27017  •  Node-RED: localhost:1880</text>
+  <text x="1200" y="795" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">Health checks: /health and /health/integrations</text>
+
+  <rect x="70" y="980" width="1780" height="55" rx="12" fill="#fff" stroke="#cbd5e1"/>
+  <text x="100" y="1015" font-family="Arial" font-size="17" fill="#334155">เส้นทางหลัก:</text>
+  <line x1="250" y1="1008" x2="330" y2="1008" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)"/><text x="345" y="1015" font-family="Arial" font-size="16" fill="#334155">HTTP / API</text>
+  <line x1="500" y1="1008" x2="580" y2="1008" stroke="#dc2626" stroke-width="4" stroke-dasharray="8 5" marker-end="url(#redArrow)"/><text x="595" y="1015" font-family="Arial" font-size="16" fill="#334155">Firebase direct connection (cards)</text>
+  <text x="1200" y="1015" font-family="Arial" font-size="16" fill="#334155">หมายเหตุ: CardService ใน Frontend เชื่อม Firestore โดยตรง; Docker API เป็น backend integration stack</text>
+
+  <g fill="none" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)">
+    <path d="M500 340 C540 340 580 380 640 380"/>
+    <path d="M500 540 C540 540 580 420 640 420"/>
+    <path d="M980 410 L1040 410"/>
+    <path d="M1380 410 L1440 410"/>
+  </g>
+  <g fill="none" stroke="#dc2626" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#redArrow)">
+    <path d="M500 300 C700 120 1350 120 1600 280"/>
+  </g>
+  <text x="820" y="145" font-family="Arial" font-size="17" font-weight="700" fill="#dc2626">Firebase Firestore / Auth (external cloud used by frontend)</text>
+</svg>

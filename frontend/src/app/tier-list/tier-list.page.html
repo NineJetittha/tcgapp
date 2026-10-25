@@ -1,23 +1,121 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar class="bg-gray-800 text-white">
+  <ion-toolbar class="deck-toolbar">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home" text="กลับ"></ion-back-button>
     </ion-buttons>
-    <ion-title class="font-bold text-sm">Decks & Tier List</ion-title>
+    <ion-title>Deck database</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="bg-gray-100">
-  <div class="tier-list-embed">
-    <div class="tier-list-fallback">
-      <a href="https://www.pokemon-zone.com/decks/" target="_blank" rel="noopener noreferrer">
-        เปิด Pokémon Zone ในแท็บใหม่
-      </a>
+<ion-content class="deck-page">
+  <main class="deck-container">
+    <section class="deck-hero">
+      <div>
+        <p class="eyebrow">TCG DECKS</p>
+        <h1>Decks & Tier List</h1>
+        <p class="hero-copy">รวมเด็คยอดนิยม อันดับความนิยม และสถิติการแข่งขันสำหรับวางแผนเด็คของคุณ</p>
+      </div>
+      <div class="hero-mark">♠</div>
+    </section>
+
+    <section class="deck-controls" aria-label="ตัวกรองเด็ค">
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input [(ngModel)]="searchTerm" type="search" placeholder="ค้นหาชื่อเด็ค หรือการ์ดหลัก..." />
+      </label>
+      <label>
+        <span>รูปแบบ</span>
+        <select [(ngModel)]="selectedFormat">
+          @for (format of formats; track format) {
+            <option [value]="format">{{ format }}</option>
+          }
+        </select>
+      </label>
+      <label>
+        <span>ระดับ Tier</span>
+        <select [(ngModel)]="selectedTier">
+          @for (tier of tiers; track tier) {
+            <option [value]="tier">{{ tier }}</option>
+          }
+        </select>
+      </label>
+    </section>
+
+    <section class="tier-summary">
+      <div>
+        <p class="eyebrow">CURRENT META</p>
+        <h2>อันดับเด็คยอดนิยม</h2>
+      </div>
+      <p class="result-count">พบ {{ filteredDecks.length }} เด็ค</p>
+    </section>
+
+    <section class="tier-tabs" aria-label="สรุป Tier">
+      <button type="button" [class.active]="selectedTier === 'ทั้งหมด'" (click)="selectedTier = 'ทั้งหมด'">
+        <strong>ทั้งหมด</strong><span>{{ decks.length }} เด็ค</span>
+      </button>
+      @for (tier of tiers.slice(1); track tier) {
+        <button type="button" [class.active]="selectedTier === tier" (click)="selectedTier = tier">
+          <strong>{{ tier }}</strong><span>{{ decks.filter(deck => deck.tier === tier).length }} เด็ค</span>
+        </button>
+      }
+    </section>
+
+    <section class="deck-grid">
+      @for (deck of filteredDecks; track deck.name) {
+        <article class="deck-card">
+          <div class="card-cover" [style.--accent]="deck.accent">
+            <img [src]="deck.image" [alt]="deck.name" />
+            <span class="tier-badge">{{ deck.tier }}</span>
+            <span class="format-badge">{{ deck.format }}</span>
+            @if (isAdmin) {
+              <label class="upload-image-button">
+                <input type="file" accept="image/*" (change)="uploadDeckImage(deck, $event)" />
+                {{ deck.image.startsWith('data:') ? 'เปลี่ยนรูป' : 'อัปโหลดรูป' }}
+              </label>
+            }
+          </div>
+          <div class="card-body">
+            <div class="card-heading">
+              <div>
+                <h3>{{ deck.name }}</h3>
+                <p>{{ deck.archetype }}</p>
+              </div>
+              <strong class="score">{{ deck.score }}</strong>
+            </div>
+            <p class="description">{{ deck.description }}</p>
+            <div class="deck-stats">
+              <span><b>{{ deck.winRate }}%</b> Win rate</span>
+              <span><b>{{ deck.tournaments }}</b> Events</span>
+            </div>
+            <button type="button" class="details-button" (click)="openDeck(deck)">ดูรายละเอียดเด็ค <span>→</span></button>
+          </div>
+        </article>
+      } @empty {
+        <div class="empty-state">
+          <span>⌕</span>
+          <h3>ไม่พบเด็คที่ค้นหา</h3>
+          <p>ลองเปลี่ยนคำค้นหาหรือตัวกรองอีกครั้ง</p>
+        </div>
+      }
+    </section>
+  </main>
+
+  @if (selectedDeck) {
+    <div class="modal-backdrop" (click)="closeDeck()">
+      <section class="deck-modal" role="dialog" aria-modal="true" (click)="$event.stopPropagation()">
+        <button type="button" class="close-button" (click)="closeDeck()" aria-label="ปิด">&times;</button>
+        <div class="modal-accent" [style.background]="selectedDeck.accent"></div>
+        <p class="eyebrow">{{ selectedDeck.tier }} · {{ selectedDeck.format }}</p>
+        <h2>{{ selectedDeck.name }}</h2>
+        <p class="modal-archetype">{{ selectedDeck.archetype }}</p>
+        <div class="modal-stats">
+          <div><strong>{{ selectedDeck.score }}</strong><span>Meta score</span></div>
+          <div><strong>{{ selectedDeck.winRate }}%</strong><span>Win rate</span></div>
+          <div><strong>{{ selectedDeck.tournaments }}</strong><span>Events</span></div>
+        </div>
+        <p>{{ selectedDeck.description }}</p>
+        <button type="button" class="details-button" (click)="closeDeck()">ปิดรายละเอียด</button>
+      </section>
     </div>
-    <iframe
-      src="https://www.pokemon-zone.com/decks/"
-      title="Pokemon Zone Decks"
-      loading="lazy">
-    </iframe>
-  </div>
+  }
 </ion-content>

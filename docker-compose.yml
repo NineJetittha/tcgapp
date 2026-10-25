@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   api:
     build: ./backend
@@ -9,18 +7,50 @@ services:
     environment:
       - PORT=3000
       - MONGO_URI=mongodb://db:27017/tcg_store
+      - NODERED_URL=http://nodered:1880
     depends_on:
-      - db
-    restart: always
+      db:
+        condition: service_healthy
+      nodered:
+        condition: service_started
+    networks:
+      - tcg_network
+    restart: unless-stopped
 
   db:
-    image: mongo:latest
+    image: mongo:9
     container_name: tcg_database
     ports:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
-    restart: always
+    networks:
+      - tcg_network
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --quiet --eval \"db.adminCommand('ping').ok\" | grep 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  nodered:
+    image: nodered/node-red:4.1
+    container_name: tcg_nodered
+    ports:
+      - "1880:1880"
+    environment:
+      - TZ=Asia/Bangkok
+      - NODE_RED_CREDENTIAL_SECRET=${NODE_RED_CREDENTIAL_SECRET:-tcgapp-development-secret}
+    volumes:
+      - nodered_data:/data
+    networks:
+      - tcg_network
+    restart: unless-stopped
 
 volumes:
   mongo_data:
+  nodered_data:
+
+networks:
+  tcg_network:
+    driver: bridge

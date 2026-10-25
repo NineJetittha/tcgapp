@@ -1,8 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 // นำเข้า Components ของ Ionic ที่เรียกใช้ใน HTML
 import { IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonBackButton } from '@ionic/angular';
+
+interface Auction {
+  id: number;
+  name: string;
+  image: string;
+  images: string[];
+  seller: string;
+  currentBid: number;
+  bidCount: number;
+  timeLeft: string;
+}
 
 @Component({
   selector: 'app-auction',
@@ -12,12 +23,18 @@ import { IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonBackButton 
   // นำมาใส่ใน imports array
   imports: [IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonBackButton, CommonModule, FormsModule]
 })
-export class AuctionPage implements OnInit {
-  auctions = [
+export class AuctionPage {
+  isCreateAuctionOpen = false;
+  auctionName = '';
+  startingBid = 100;
+  selectedImages: string[] = [];
+
+  auctions: Auction[] = [
     {
       id: 1,
       name: 'Charizard VMAX (Secret Rare)',
       image: 'assets/auction-charizard.png',
+      images: ['assets/auction-charizard.png'],
       seller: '@PokeMaster99',
       currentBid: 4500,
       bidCount: 12,
@@ -25,29 +42,55 @@ export class AuctionPage implements OnInit {
     }
   ];
 
-  ngOnInit() { }
-
   createAuction() {
-    const name = window.prompt('ชื่อการ์ดที่ต้องการประมูล');
-    if (!name?.trim()) {
+    this.isCreateAuctionOpen = true;
+  }
+
+  closeCreateAuction() {
+    this.isCreateAuctionOpen = false;
+    this.auctionName = '';
+    this.startingBid = 100;
+    this.selectedImages.forEach((image) => URL.revokeObjectURL(image));
+    this.selectedImages = [];
+  }
+
+  onImagesSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const files = Array.from(input.files ?? []);
+    this.selectedImages.forEach((image) => URL.revokeObjectURL(image));
+    this.selectedImages = files.map((file) => URL.createObjectURL(file));
+  }
+
+  submitAuction() {
+    const name = this.auctionName.trim();
+    if (!name) {
+      window.alert('กรุณาระบุชื่อการ์ด');
       return;
     }
 
-    const startingBid = Number(window.prompt('ราคาเริ่มต้น (บาท)', '100'));
-    if (!Number.isFinite(startingBid) || startingBid < 0) {
+    if (!Number.isFinite(this.startingBid) || this.startingBid < 0) {
       window.alert('กรุณาระบุราคาเริ่มต้นให้ถูกต้อง');
       return;
     }
 
+    const images = this.selectedImages.length > 0
+      ? [...this.selectedImages]
+      : ['assets/auction-charizard.png'];
+
     this.auctions.unshift({
       id: Date.now(),
-      name: name.trim(),
-      image: 'assets/auction-charizard.png',
+      name,
+      image: images[0],
+      images,
       seller: '@ผู้ขาย',
-      currentBid: startingBid,
+      currentBid: this.startingBid,
       bidCount: 0,
       timeLeft: '24:00:00'
     });
+    this.isCreateAuctionOpen = false;
+    this.auctionName = '';
+    this.startingBid = 100;
+    this.selectedImages = [];
   }
 
   placeBid(auction: typeof this.auctions[number]) {

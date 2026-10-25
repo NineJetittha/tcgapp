@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity=".15"/></filter>
+  </defs>
+  <rect width="1920" height="1080" fill="#f4f7fb"/>
+  <rect x="60" y="40" width="1800" height="100" rx="24" fill="#173b68"/>
+  <text x="960" y="88" text-anchor="middle" font-family="Arial,sans-serif" font-size="40" font-weight="800" fill="#fff">TCG Card Store — Software Architecture</text>
+  <text x="960" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#cfe3ff">แบบที่ 2: Production Deployment on Firebase</text>
+
+  <rect x="75" y="205" width="360" height="640" rx="22" fill="#fff" stroke="#7c3aed" stroke-width="3" filter="url(#shadow)"/>
+  <text x="255" y="250" text-anchor="middle" font-family="Arial" font-size="26" font-weight="800" fill="#5b21b6">End Users</text>
+  <rect x="120" y="295" width="270" height="120" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="255" y="338" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#111827">Web Browser</text>
+  <text x="255" y="375" text-anchor="middle" font-family="Arial" font-size="17" fill="#4b5563">tcgapp-13983.web.app</text>
+  <rect x="120" y="470" width="270" height="120" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="255" y="513" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#111827">Android App</text>
+  <text x="255" y="550" text-anchor="middle" font-family="Arial" font-size="17" fill="#4b5563">Capacitor APK</text>
+  <rect x="120" y="645" width="270" height="120" rx="14" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="255" y="688" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#9a3412">Admin / Seller</text>
+  <text x="255" y="725" text-anchor="middle" font-family="Arial" font-size="17" fill="#4b5563">Manage listings &amp; events</text>
+
+  <rect x="520" y="180" width="1310" height="700" rx="25" fill="#fff8e6" stroke="#f59e0b" stroke-width="4" stroke-dasharray="12 8"/>
+  <text x="570" y="230" font-family="Arial" font-size="30" font-weight="800" fill="#b45309">Firebase Project: tcgapp-13983</text>
+  <text x="570" y="260" font-family="Arial" font-size="17" fill="#92400e">Managed cloud services • HTTPS • global hosting • serverless data access</text>
+
+  <rect x="590" y="315" width="330" height="215" rx="18" fill="#fff" stroke="#ef4444" stroke-width="3" filter="url(#shadow)"/>
+  <text x="755" y="360" text-anchor="middle" font-family="Arial" font-size="25" font-weight="800" fill="#b91c1c">Firebase Hosting</text>
+  <text x="755" y="400" text-anchor="middle" font-family="Arial" font-size="18" fill="#475569">frontend/www</text>
+  <text x="755" y="438" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">Angular production build</text>
+  <text x="755" y="476" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">SPA rewrite → index.html</text>
+  <text x="755" y="512" text-anchor="middle" font-family="Arial" font-size="16" fill="#475569">HTTPS / CDN</text>
+
+  <rect x="1000" y="315" width="330" height="215" rx="18" fill="#fff" stroke="#16a34a" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1165" y="360" text-anchor="middle" font-family="Arial" font-size="25" font-weight="800" fill="#166534">Cloud Firestore</text>
+  <text x="1165" y="400" text-anchor="middle" font-family="Arial" font-size="18" fill="#475569">cards collection</text>
+  <text x="1165" y="438" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">Real-time reads / writes</text>
+  <text x="1165" y="476" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">Firestore security rules</text>
+  <text x="1165" y="512" text-anchor="middle" font-family="Arial" font-size="16" fill="#475569">Scalable managed database</text>
+
+  <rect x="1410" y="315" width="350" height="215" rx="18" fill="#fff" stroke="#2563eb" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1585" y="360" text-anchor="middle" font-family="Arial" font-size="25" font-weight="800" fill="#1d4ed8">Firebase Auth</text>
+  <text x="1585" y="400" text-anchor="middle" font-family="Arial" font-size="18" fill="#475569">User identity / sessions</text>
+  <text x="1585" y="438" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">Login &amp; access control</text>
+  <text x="1585" y="476" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">Admin / user roles</text>
+  <text x="1585" y="512" text-anchor="middle" font-family="Arial" font-size="16" fill="#475569">Auth domain</text>
+
+  <rect x="590" y="625" width="1170" height="180" rx="18" fill="#eef2ff" stroke="#6366f1" stroke-width="3"/>
+  <text x="1175" y="670" text-anchor="middle" font-family="Arial" font-size="25" font-weight="800" fill="#3730a3">Application Runtime</text>
+  <text x="1175" y="710" text-anchor="middle" font-family="Arial" font-size="18" fill="#475569">Ionic + Angular • Routes • Guards • CardService • Camera / Capacitor</text>
+  <text x="1175" y="750" text-anchor="middle" font-family="Arial" font-size="17" fill="#475569">Home • Shop • Event • Auction • Sell Card • Tier List</text>
+  <text x="1175" y="782" text-anchor="middle" font-family="Arial" font-size="16" fill="#475569">Static assets and production bundles served by Firebase Hosting</text>
+
+  <rect x="75" y="935" width="1760" height="80" rx="14" fill="#fff" stroke="#cbd5e1"/>
+  <text x="105" y="970" font-family="Arial" font-size="17" font-weight="700" fill="#334155">Deployment flow:</text>
+  <text x="270" y="970" font-family="Arial" font-size="17" fill="#334155">npm run build -- --configuration production</text>
+  <text x="760" y="970" font-family="Arial" font-size="17" fill="#334155">→</text>
+  <text x="805" y="970" font-family="Arial" font-size="17" fill="#334155">frontend/www</text>
+  <text x="1040" y="970" font-family="Arial" font-size="17" fill="#334155">→</text>
+  <text x="1085" y="970" font-family="Arial" font-size="17" fill="#334155">firebase deploy --only hosting</text>
+  <text x="105" y="998" font-family="Arial" font-size="15" fill="#64748b">Production URL: https://tcgapp-13983.web.app  •  Firestore project: tcgapp-13983</text>
+
+  <g fill="none" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)">
+    <path d="M435 350 C490 350 530 390 590 390"/>
+    <path d="M435 530 C500 530 530 465 590 465"/>
+    <path d="M920 420 L1000 420"/>
+    <path d="M1330 420 L1410 420"/>
+    <path d="M1165 530 L1165 625"/>
+  </g>
+  <g font-family="Arial" font-size="17" font-weight="700" fill="#2563eb">
+    <text x="465" y="330">HTTPS</text>
+    <text x="945" y="402">Firestore SDK</text>
+    <text x="1345" y="402">Auth SDK</text>
+    <text x="1185" y="585">loads app</text>
+  </g>
+</svg>

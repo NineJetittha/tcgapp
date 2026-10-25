@@ -31,6 +31,43 @@ TCGApp/
 └─ README.md
 ```
 
+## รัน backend, MongoDB และ Node-RED ด้วย Docker
+
+ใน `docker-compose.yml` มี service สำหรับ backend, MongoDB และ Node-RED
+อยู่ใน network เดียวกัน โดย backend เชื่อมต่อ MongoDB ผ่านชื่อ service `db`
+และเชื่อมต่อ Node-RED ผ่าน `http://nodered:1880`
+
+เริ่มระบบ:
+
+```powershell
+cd C:\TCGApp
+docker compose up -d --build
+```
+
+ตรวจสอบสถานะการเชื่อมต่อ:
+
+```powershell
+Invoke-RestMethod http://localhost:3000/health
+Invoke-RestMethod http://localhost:3000/health/integrations
+```
+
+จุดเชื่อมต่อ:
+
+- Backend API: `http://localhost:3000`
+- Cards API: `http://localhost:3000/api/cards`
+- MongoDB: `mongodb://localhost:27017/tcg_store`
+- Node-RED editor/API: `http://localhost:1880`
+
+ข้อมูล MongoDB และ flow ของ Node-RED จะถูกเก็บใน Docker volumes
+(`mongo_data` และ `nodered_data`) จึงไม่หายเมื่อ recreate container
+
+สำหรับใช้งานจริง ควรกำหนด secret ก่อนเริ่มระบบ:
+
+```powershell
+$env:NODE_RED_CREDENTIAL_SECRET="เปลี่ยนเป็นค่าที่ปลอดภัย"
+docker compose up -d --build
+```
+
 ## ความต้องการของระบบ
 
 - Node.js และ npm
@@ -213,3 +250,37 @@ $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot"
 collection `cards` ได้โดยไม่ต้องยืนยันตัวตน (`allow read, write: if true;`)
 เหมาะสำหรับการทดสอบเท่านั้น ควรจำกัดสิทธิ์ตามผู้ใช้ก่อนใช้งานจริงหรือเผยแพร่
 สู่สาธารณะ
+
+## Wireframe ของทุกหน้า
+
+ไฟล์ wireframe อยู่ในโฟลเดอร์ `wireframes/` เป็นภาพ SVG ขนาด
+1920 × 1080 px แยกตามหน้า โดยใช้สไตล์ schematic ขาวดำ พร้อมเส้นชี้
+และคำอธิบายสีแดงตามภาพอ้างอิง:
+
+- `login.svg`
+- `register.svg`
+- `home.svg`
+- `shop.svg`
+- `event.svg`
+- `sell-card.svg`
+- `auction.svg`
+- `tier-list.svg`
+
+Business Model Canvas ของแอปอยู่ที่
+`wireframes/business-model-canvas.svg` โดยสรุปกลุ่มลูกค้า คุณค่าหลัก
+ช่องทาง พันธมิตร กิจกรรม ทรัพยากร ต้นทุน และแหล่งรายได้ของ TCG Card Store
+ในภาพเดียว ขนาด 1920 × 1080 px
+
+## Software Architecture
+
+ภาพสถาปัตยกรรมระบบมี 2 รูปแบบ ขนาด 1920 × 1080 px:
+
+- `wireframes/software-architecture-local-docker.svg` — Local Host ผ่าน Docker Compose
+  ประกอบด้วย Angular/Ionic, Node.js API, MongoDB และ Node-RED
+- `wireframes/software-architecture-firebase.svg` — Production บน Firebase Hosting,
+  Cloud Firestore และ Firebase Authentication
+
+Flowchart การทำงานของแอปอยู่ที่
+`wireframes/application-flowchart.svg` แสดงเส้นทางตั้งแต่เปิดแอป,
+ตรวจสอบ Session, Login/Register, Home และฟังก์ชันหลักทั้งหมด
+ขนาด 1920 × 1080 px
